@@ -16,25 +16,17 @@ yarn dev
 
 
 ````
-Route /api/users/:number :
-GET: /api/users/:number - {URL parameter => :number(The ":number" parameter means the user's creation order. when passing a number, all users created after that number will be returned from the API)} 
+Route User :
+POST: /user - {Parametros: name(tipo string), email(tipo string), phoneNumber(tipo number), password(tipo string)}
+POST: /user/login - {Parametros: email(tipo string), password(tipo string)}
+GET: /user/:id - {URL parametro => :id(O parametro ":id" é o id de quem você quer verificar os contatos)}
+GET: /user/ - {Token de autorização necessario para trazer as informações do usuario logado}
 ````
 ````
-Route /users/:username/details :
-GET: /api/users/:username/details - {URL parameter => :username(The ":username" parameter means the user's username from github, this API will return all public information about the userI)} 
+Route Contact :
+POST: /contact/:id - {URL parametro => :id(O parametro ":id" é o id de quem você quer cadastrar como contato), Token de autorização é o token da pessoa
+que irá realizar o cadastro de um contato}
 ````
-````
-Route /users/:username/repos :
-GET: /api/users/:username/repos - {URL parameter => :username(The ":username" parameter means the user's username from github, this API will return all public repositories from the userI)} 
-````
-<br>
-
-# **API Render URL**
-
-````
-https://shawandpartnersapi.onrender.com
-````
-
 <br>
 
 # **About the tests**
