@@ -1,4 +1,4 @@
-# Shaw and Partners test
+# Desafio 1
 
 To start this project, it is necessary to install the dependencies, which will be used in the tests. So use the command below to install such dependencies:
 
