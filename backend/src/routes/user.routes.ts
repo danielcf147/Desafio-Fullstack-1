@@ -1,0 +1,24 @@
+import { Router } from "express";
+import {
+  createUserController,
+  loginUserController,
+  listUserController,
+  listUserInfoController,
+} from "../controllers/user.controllers";
+import dataIsValid from "../middlewares/dataIsValid.middleware";
+import ensureAuthMiddleware from "../middlewares/ensureAuthToken.middleware";
+import { userRequestSerializer } from "../serializers/user/user.serializer";
+import userLoginSerializer from "../serializers/user/userLogin.serializer";
+
+const userRouters = Router();
+
+userRouters.post("", dataIsValid(userRequestSerializer), createUserController);
+userRouters.post(
+  "/login",
+  dataIsValid(userLoginSerializer),
+  loginUserController
+);
+userRouters.get("/:id", listUserController);
+userRouters.get("", ensureAuthMiddleware, listUserInfoController);
+
+export default userRouters;
