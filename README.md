@@ -1,13 +1,13 @@
 # Desafio 1
 
-To start this project, it is necessary to install the dependencies, which will be used in the tests. So use the command below to install such dependencies:
+To start this project, it is necessary to install the dependencies, which will be used in the tests. To install frontend and backend dependences, you need to open a Integrated Terminal of each folder, one related to backend and the other related to the frontend. Then use the command below to install such dependencies:
 
 ````
-yarn install
+yarn install or npm install
 ````
 <br>
 
-With that done, to run your application, just use the command
+With that done, to run your application you need to do the following steps, set your .env using the .env.exemple as exemple. After run the following code on your backend terminal "yarn typeorm migration:run -d src/data-source", after that done you just need to use the following command on both terminals, backend and frontend
 ````
 yarn dev
 ````
@@ -17,15 +17,15 @@ yarn dev
 
 ````
 Route User :
-POST: /user - {Parametros: name(tipo string), email(tipo string), phoneNumber(tipo number), password(tipo string)}
-POST: /user/login - {Parametros: email(tipo string), password(tipo string)}
-GET: /user/:id - {URL parametro => :id(O parametro ":id" é o id de quem você quer verificar os contatos)}
-GET: /user/ - {Token de autorização necessario para trazer as informações do usuario logado}
+POST: /user - {Parameters: name(tipo string), email(tipo string), phoneNumber(tipo number), password(tipo string)}
+POST: /user/login - {Parameters: email(tipo string), password(tipo string)}
+GET: /user/:id - {URL Parameters => :id(The ":id" parameter is the id of the person you want to check the contacts)}
+GET: /user/ - {Authorization Token necessary to bring the information of the logged in user}
 ````
 ````
 Route Contact :
-POST: /contact/:id - {URL parametro => :id(O parametro ":id" é o id de quem você quer cadastrar como contato), Token de autorização é o token da pessoa
-que irá realizar o cadastro de um contato}
+POST: /contact/:id - {URL Parameters => :id(The ":id" parameter is the id of the person you want to register as a contact), Authorization token is the person's token
+which will register a contact}
 ````
 <br>
 
