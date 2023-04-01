@@ -1,9 +1,16 @@
 import AppDataSource from "../../data-source";
 import { UserContact } from "../../entities/userContactsEntity";
-import { allUsersSerializer } from "../../serializers/user/user.serializer";
+import { User } from "../../entities/usersEntity";
 import { IContact } from "../../interfaces/contact/contact.interface";
+import { AppError } from "../../errors";
 
-const listUserService = async (id: string): Promise<IContact[]> => {
+const listUserContactService = async (id: string): Promise<IContact[]> => {
+  const userRepository = AppDataSource.getRepository(User);
+  const findUser = await userRepository.findOneBy({ id: id });
+
+  if (findUser.isActive === false) {
+    throw new AppError("User is unactive", 400);
+  }
   const contactRepository = AppDataSource.getRepository(UserContact);
 
   const contactQueryBuilder =
@@ -15,4 +22,4 @@ const listUserService = async (id: string): Promise<IContact[]> => {
 
   return contact.getMany();
 };
-export default listUserService;
+export default listUserContactService;

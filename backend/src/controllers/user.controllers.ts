@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { IUserRequest, ILoginRequest } from "../interfaces/user/user.interface";
 import createUserService from "../services/user/createUser.service";
 import loginUserService from "../services/user/loginUser.service";
-import listUserService from "../services/user/listUser.service";
 import listUserInfoService from "../services/user/listUserInfo.service";
 import updateUserService from "../services/user/updateUSer.service";
 import deleteUserService from "../services/user/deleteUser.service";
@@ -17,14 +16,6 @@ const loginUserController = async (request: Request, response: Response) => {
   const loginData: ILoginRequest = request.body;
   const token = await loginUserService(loginData);
   return response.json({ token });
-};
-
-const listUserController = async (request: Request, response: Response) => {
-  const id = request.params.id;
-
-  const movies = await listUserService(id);
-
-  return response.status(200).json(movies);
 };
 
 const listUserInfoController = async (request: Request, response: Response) => {
@@ -49,7 +40,6 @@ const deleteUserController = async (req: Request, res: Response) => {
 export {
   createUserController,
   loginUserController,
-  listUserController,
   listUserInfoController,
   updateUserController,
   deleteUserController,

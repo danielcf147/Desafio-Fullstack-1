@@ -2,7 +2,6 @@ import { Router } from "express";
 import {
   createUserController,
   loginUserController,
-  listUserController,
   listUserInfoController,
   updateUserController,
   deleteUserController,
@@ -20,7 +19,7 @@ userRouters.post(
   dataIsValid(userLoginSerializer),
   loginUserController
 );
-userRouters.get("/:id", listUserController);
+
 userRouters.get("", ensureAuthMiddleware, listUserInfoController);
 userRouters.patch("/:id", ensureAuthMiddleware, updateUserController);
 userRouters.delete("/:id", ensureAuthMiddleware, deleteUserController);
