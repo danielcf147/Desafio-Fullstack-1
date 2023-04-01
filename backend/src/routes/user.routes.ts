@@ -22,7 +22,7 @@ userRouters.post(
 );
 userRouters.get("/:id", listUserController);
 userRouters.get("", ensureAuthMiddleware, listUserInfoController);
-userRouters.patch("/:id", ensureAuthMiddleware), updateUserController;
+userRouters.patch("/:id", ensureAuthMiddleware, updateUserController);
 userRouters.delete("/:id", ensureAuthMiddleware, deleteUserController);
 
 export default userRouters;
