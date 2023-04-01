@@ -29,6 +29,10 @@ const loginUserService = async ({
     throw new AppError("User or password invalid", 403);
   }
 
+  if (user.isActive === false) {
+    throw new AppError("User is unactive", 400);
+  }
+
   const token = jwt.sign(
     {
       email: email,

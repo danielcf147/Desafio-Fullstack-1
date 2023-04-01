@@ -4,6 +4,8 @@ import {
   loginUserController,
   listUserController,
   listUserInfoController,
+  updateUserController,
+  deleteUserController,
 } from "../controllers/user.controllers";
 import dataIsValid from "../middlewares/dataIsValid.middleware";
 import ensureAuthMiddleware from "../middlewares/ensureAuthToken.middleware";
@@ -20,5 +22,7 @@ userRouters.post(
 );
 userRouters.get("/:id", listUserController);
 userRouters.get("", ensureAuthMiddleware, listUserInfoController);
+userRouters.patch("/:id", ensureAuthMiddleware), updateUserController;
+userRouters.delete("/:id", ensureAuthMiddleware, deleteUserController);
 
 export default userRouters;

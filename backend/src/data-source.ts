@@ -4,7 +4,7 @@ import path from "path";
 import "dotenv/config";
 import { User } from "./entities/usersEntity";
 import { UserContact } from "./entities/userContactsEntity";
-import { creatingUserCreatingContact1679498927035 } from "./migrations/1679498927035-creatingUser-creatingContact";
+import { creatingAddressPropertiesUsersToPropertiesCategories1680367749725 } from "./migrations/1680367749725-creatingAddress-Properties-UsersToProperties-Categories";
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
     ? {
@@ -23,7 +23,9 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         entities: [User, UserContact],
-        migrations: [creatingUserCreatingContact1679498927035],
+        migrations: [
+          creatingAddressPropertiesUsersToPropertiesCategories1680367749725,
+        ],
       }
 );
 

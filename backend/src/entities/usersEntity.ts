@@ -27,6 +27,9 @@ export class User {
   @Column()
   phoneNumber: number;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 
