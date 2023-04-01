@@ -1,3 +1,4 @@
+import { hashSync, genSalt } from "bcryptjs";
 import AppDataSource from "../../data-source";
 import { User } from "../../entities/usersEntity";
 import { AppError } from "../../errors";
@@ -23,6 +24,11 @@ const updateUserService = async (
   const user = await userRepository.findOneBy({
     id: id,
   });
+
+  if (data.password) {
+    const salt = await genSalt(10);
+    data.password = await hashSync(data.password, salt);
+  }
 
   const updatedUser = userRepository.create({
     ...user,

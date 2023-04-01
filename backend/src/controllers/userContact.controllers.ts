@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import createUserContactService from "../services/contact/createUserContact.service";
 import listUserContactService from "../services/contact/listUserContact.service";
+import deleteUserContactService from "../services/contact/deleteUserContact.service";
 
 const createUserContactController = async (
   request: Request,
@@ -20,4 +21,18 @@ const listUserController = async (request: Request, response: Response) => {
 
   return response.status(200).json(movies);
 };
-export { createUserContactController, listUserController };
+
+const deleteUserContactController = async (
+  request: Request,
+  response: Response
+) => {
+  const contactId = request.params.contactId;
+  const deletedUser = await deleteUserContactService(contactId);
+  return response.status(204).json(deletedUser);
+};
+
+export {
+  createUserContactController,
+  listUserController,
+  deleteUserContactController,
+};

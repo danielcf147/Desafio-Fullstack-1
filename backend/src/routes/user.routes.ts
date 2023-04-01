@@ -8,6 +8,7 @@ import {
 } from "../controllers/user.controllers";
 import dataIsValid from "../middlewares/dataIsValid.middleware";
 import ensureAuthMiddleware from "../middlewares/ensureAuthToken.middleware";
+import isSameUserMiddleware from "../middlewares/ensureIsSameUser.middleware";
 import { userRequestSerializer } from "../serializers/user/user.serializer";
 import userLoginSerializer from "../serializers/user/userLogin.serializer";
 
@@ -21,7 +22,17 @@ userRouters.post(
 );
 
 userRouters.get("", ensureAuthMiddleware, listUserInfoController);
-userRouters.patch("/:id", ensureAuthMiddleware, updateUserController);
-userRouters.delete("/:id", ensureAuthMiddleware, deleteUserController);
+userRouters.patch(
+  "/:id",
+  ensureAuthMiddleware,
+  isSameUserMiddleware,
+  updateUserController
+);
+userRouters.delete(
+  "/:id",
+  ensureAuthMiddleware,
+  isSameUserMiddleware,
+  deleteUserController
+);
 
 export default userRouters;
