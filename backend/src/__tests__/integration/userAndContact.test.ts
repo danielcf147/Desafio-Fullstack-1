@@ -99,7 +99,7 @@ describe("/user", () => {
       .set("Authorization", `Bearer ${userLoginResponse.body.token}`);
 
     const response = await request(app).get(
-      `/user/${createUserResponse.body.id}`
+      `/contact/${createUserResponse.body.id}`
     );
 
     expect(response.body[0]).toHaveProperty("id");
