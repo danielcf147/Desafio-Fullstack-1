@@ -7,15 +7,12 @@ yarn install or npm install
 ````
 <br>
 
-With that done, to run your application you need to do the following steps, set your .env using the .env.exemple as exemple. After run the following code on your backend terminal "yarn typeorm migration:run -d src/data-source", after that done you just need to use the following command on both terminals, backend and frontend
+With that done, to run your application you need to do the following steps, set your .env using the .env.exemple as exemple. After run the following code on your backend terminal "yarn typeorm migration:run -d src/data-source", after that done you just need to use the following command on both terminals, backend and frontend.
+Obs: To create a contact, the contact must be a valid User in the database.
 ````
 yarn dev
 ````
 
-<br>
-````
-Obs: To create a contact, the contact must be a valid User in the database.
-````
 <br>
 
 # **About the routes**
