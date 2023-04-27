@@ -19,13 +19,16 @@ yarn dev
 Route User :
 POST: /user - {Parameters: name(tipo string), email(tipo string), phoneNumber(tipo number), password(tipo string)}
 POST: /user/login - {Parameters: email(tipo string), password(tipo string)}
-GET: /user/:id - {URL Parameters => :id(The ":id" parameter is the id of the person you want to check the contacts)}
 GET: /user/ - {Authorization Token necessary to bring the information of the logged in user}
+PATCH: /user/:id - {Parameters: name(tipo string), email(tipo string), phoneNumber(tipo number), password(tipo string))}{Authorization Token necessary}
+DELETE: /user/:id - {Authorization Token necessary}
 ````
 ````
 Route Contact :
 POST: /contact/:id - {URL Parameters => :id(The ":id" parameter is the id of the person you want to register as a contact), Authorization token is the person's token
 which will register a contact}
+GET: /contact/:id - {URL Parameters => :id(The ":id" parameter is the id of the person you want to check the contacts)}{Authorization Token necessary}
+DELETE: /user/:id/:contactId - {URL Parameters => :id(The ":id" parameter is the id of the user that wants to delete a contact) :contactId(the :contactId is the id of the contact the user wants to delete)}{Authorization Token necessary}
 ````
 <br>
 
