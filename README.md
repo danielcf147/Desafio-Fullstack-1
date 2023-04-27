@@ -11,7 +11,12 @@ With that done, to run your application you need to do the following steps, set 
 ````
 yarn dev
 ````
-<br> 
+
+<br>
+Obs: To create a contact, the contact must be a valid User in the database.
+````
+<br>
+
 # **About the routes**
 
 
